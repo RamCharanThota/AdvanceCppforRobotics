@@ -3,6 +3,8 @@
 
 RobotManagerBase::RobotManagerBase(ros::NodeHandle &nh_in) { nh = nh_in; }
 
+RobotManagerBase::RobotManagerBase() {}
+
 bool RobotManagerBase::ConfigOutputCallback(
     std_srvs::SetBoolRequest &req, std_srvs::SetBoolResponse &response) {
   bool request = req.data;
