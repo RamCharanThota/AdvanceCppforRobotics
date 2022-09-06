@@ -124,9 +124,13 @@ add_library(base_robot_manager_lib
   src/base_robot_manager.cpp
 )
 
-add_executable(base_robot_manager_node src/base_robot_manager_node.cpp )#src/robot_manager.cpp)
-target_link_libraries( base_robot_manager_node
-  ${catkin_LIBRARIES} base_robot_manager_lib
+add_library(mobile_robot_manager_lib
+  src/mobile_robot_robot_manager.cpp
+)
+
+add_executable(mobile_robot_robot_manager_node src/mobile_robot_robot_manager_node.cpp )#src/robot_manager.cpp)
+target_link_libraries( mobile_robot_robot_manager_node
+  ${catkin_LIBRARIES} mobile_robot_manager_lib base_robot_manager_lib
 )
 
 ## Add cmake target dependencies of the library
