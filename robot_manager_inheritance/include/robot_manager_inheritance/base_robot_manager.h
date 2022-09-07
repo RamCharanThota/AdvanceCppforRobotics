@@ -13,9 +13,12 @@ class RobotManagerBase {
 protected:
   ros::NodeHandle nh;
   bool output_enabled;
+  std::string robot_name = "metal heart";
+  std::string robot_location = "on earth";
 
 public:
   RobotManagerBase(ros::NodeHandle &nh_in);
   void init_config_output_srv();
   RobotManagerBase();
+  void dispalyRobotDetails();
 };

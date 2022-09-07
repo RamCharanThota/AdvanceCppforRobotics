@@ -5,7 +5,6 @@
 RobotManagerMobile::RobotManagerMobile(ros::NodeHandle &nh_in) {
   nh = nh_in;
   odometry_topic = "/robot1/odom";
-  init_config_output_srv();
   init_odom_subscriber();
 }
 
@@ -22,4 +21,12 @@ void RobotManagerMobile::odom_callback(const nav_msgs::OdometryConstPtr &msg) {
     ROS_INFO("Position (x,y): %lf , %lf", current_x_position,
              current_y_position);
   }
+}
+
+void RobotManagerMobile::dispalyRobotDetails() {
+  ROS_INFO("robot name: %s , location: %s ", robot_name.c_str(),
+           robot_location.c_str());
+
+  ROS_INFO("Battery Charge level: %f , type of batter: %s ",
+           battery_charge_level, type_of_battery.c_str());
 }

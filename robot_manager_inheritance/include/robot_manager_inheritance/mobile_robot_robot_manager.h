@@ -12,7 +12,10 @@ class RobotManagerMobile : public RobotManagerBase {
   void init_odom_subscriber();
   float current_x_position = 0.0;
   float current_y_position = 0.0;
+  float battery_charge_level = 0.55;
+  std::string type_of_battery = "lead acid";
 
 public:
   RobotManagerMobile(ros::NodeHandle &nh_in);
+  void dispalyRobotDetails();
 };
