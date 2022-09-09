@@ -6,6 +6,7 @@ RobotManagerMobile::RobotManagerMobile(ros::NodeHandle &nh_in) {
   nh = nh_in;
   odometry_topic = "/robot1/odom";
   init_odom_subscriber();
+  init_config_output_srv();
 }
 
 void RobotManagerMobile::init_odom_subscriber() {

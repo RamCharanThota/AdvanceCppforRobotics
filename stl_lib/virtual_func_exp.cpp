@@ -5,23 +5,22 @@ using namespace std;
 
 class Base {
 protected:
-  void prFunc() { cout << "prtinting prFunc Base" << endl; }
+  void prFunc() {
+    this->puFunc();
+    cout << "prtinting prFunc Base" << endl;
+  }
 
 public:
+  Base() { prFunc(); }
   virtual void puFunc() { cout << "prtinting puFunc Base" << endl; }
 };
 
 class Child : public Base {
 public:
-  void puFunc() {
-    prFunc();
-    cout << "prtinting puFunc child" << endl;
-  }
-  void puFunctwo() { cout << "prtinting puFunctwo child" << endl; }
+  void puFunc() { cout << "prtinting puFunc child" << endl; }
 };
 
 int main() {
   Child c;
   Base *b = &c;
-  b->puFunc();
 }

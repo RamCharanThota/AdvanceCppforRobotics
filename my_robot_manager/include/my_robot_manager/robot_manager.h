@@ -12,7 +12,11 @@ class RobotManager {
   void odom_callback(const nav_msgs::Odometry::ConstPtr &msg);
   ros::Subscriber odom_subscriber;
   std::string robot_name;
+  static int robot_count;
+ float get_coords(int param);
+
 
 public:
   RobotManager(ros::NodeHandle *nh, std::string name, std::string odom_topic);
+  void printxyval();
 };

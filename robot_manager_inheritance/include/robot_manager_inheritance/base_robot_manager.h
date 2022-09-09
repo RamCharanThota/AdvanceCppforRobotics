@@ -15,10 +15,10 @@ protected:
   bool output_enabled;
   std::string robot_name = "metal heart";
   std::string robot_location = "on earth";
+  virtual void init_config_output_srv();
 
 public:
   RobotManagerBase(ros::NodeHandle &nh_in);
-  void init_config_output_srv();
   RobotManagerBase();
-  void dispalyRobotDetails();
+  virtual void dispalyRobotDetails();
 };

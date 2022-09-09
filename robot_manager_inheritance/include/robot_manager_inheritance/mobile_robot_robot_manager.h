@@ -18,4 +18,5 @@ class RobotManagerMobile : public RobotManagerBase {
 public:
   RobotManagerMobile(ros::NodeHandle &nh_in);
   void dispalyRobotDetails();
+  void init_config_output_srv();
 };

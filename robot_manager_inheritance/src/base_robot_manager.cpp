@@ -1,7 +1,10 @@
 #include "robot_manager_inheritance/base_robot_manager.h"
 #include "ros/node_handle.h"
 
-RobotManagerBase::RobotManagerBase(ros::NodeHandle &nh_in) { nh = nh_in; }
+RobotManagerBase::RobotManagerBase(ros::NodeHandle &nh_in) {
+  nh = nh_in;
+  init_config_output_srv();
+}
 
 RobotManagerBase::RobotManagerBase() {}
 
@@ -10,7 +13,7 @@ bool RobotManagerBase::ConfigOutputCallback(
   bool request = req.data;
 
   // print the robot details
-  dispalyRobotDetails();
+  this->dispalyRobotDetails();
   // Check if request is same as current output configuration
   if (request == output_enabled) {
     response.success = false;
