@@ -28,4 +28,15 @@ int main() {
   int const *const p3 = &value;
   // *p3=50;  you cannot do this
   // p3=&value2; you cannot do this
+
+  //
+  int const value3 = 5;
+  int const *p4 = &value3;
+
+  int array[5] = {1, 2, 3, 4, 5};
+
+  int *parray = array;
+
+  cout << "print 2 val of array: " << *++parray;
+  cout << "print 2 val of array: " << *++parray;
 }
