@@ -9,6 +9,7 @@ project(unit6_exercises)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED COMPONENTS
   roscpp
+  sensor_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -126,11 +127,22 @@ add_library(magic_printer_library
   src/magic_printer.cpp
 )
 
+add_library(topic_subscriber_function src/topic_subscriber_function.cpp)
+
+
 add_executable(main_magic_printer_node src/main_magic_printer.cpp)
+
+add_executable(topic_subscriber_function_node src/main_topic_subscriber_function.cpp)
 
 ## Specify libraries to link a library or executable target against
 target_link_libraries(main_magic_printer_node
 	magic_printer_library
+	${catkin_LIBRARIES}
+)
+
+
+target_link_libraries(topic_subscriber_function_node
+	topic_subscriber_function
 	${catkin_LIBRARIES}
 )
 
