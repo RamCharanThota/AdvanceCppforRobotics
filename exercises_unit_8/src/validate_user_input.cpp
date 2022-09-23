@@ -3,6 +3,11 @@
 #include <iostream>
 #include <ros/ros.h>
 
+class WrongTurnException : public std::exception {
+public:
+  const char *what() const throw() { return "input vel is not valid \n"; }
+};
+
 int main(int argc, char **argv) {
   ros::init(argc, argv, "exercise_8_1");
 
@@ -26,11 +31,11 @@ int main(int argc, char **argv) {
         if (turn_velocity >= -1 && turn_velocity <= 0) {
           my_robot.turn(turn_velocity, 5);
         } else {
-          throw 1;
+          throw WrongTurnException();
         }
 
-      } catch (...) {
-        ROS_WARN("Enter turn velocity between -1.0 and 0.0");
+      } catch (WrongTurnException e) {
+        std::cout << e.what();
       }
     }
 
